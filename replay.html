@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>RePlay</title>
+<style>
+    body{
+        background: url(http://hdooh.com/wp-content/uploads/2013/10/Record-Vinyl-Photograph.jpg);
+        position: relative;
+    }
+    @font-face {
+        font-family: 'Lobster';
+        font-style: normal;
+        font-weight: 400;
+        src: local('Lobster'), url(http://themes.googleusercontent.com/static/fonts/lobster/v5/8xaBBwqwZomW1W1sS-1tfaCWcynf_cDxXwCLxiixG1c.woff) format('woff');
+    }
+    h1{
+        font-family: 'Lobster';
+        font-size: 100px;
+        color: #50a4a5;
+        text-align: center;
+        line-height: 5%;
+    }
+    h2{
+        font-family: "Arial";
+        font-size: 20px;
+        color: #50a4a5;
+        text-align: center;
+        font-weight: 100;
+        line-height: 5%;
+        letter-spacing:  -2px;
+    }
+    p{
+        font-family: 'Lobster';
+        font-size: 20px;
+        color: #280104;
+        text-align: center;
+        font-weight: 100;
+        line-height: 0%;
+        letter-spacing: -1px;
+    }
+    textarea
+    {
+        resize: none;
+        font-family: "Arial";
+        font-size: 15px;
+        border: hidden;
+        background-color: #ffffff;
+        height: 30px;
+        width: 250px;
+        border-radius: 10px;
+        -moz-appearance: none;
+    }
+    *:focus
+    {
+        outline:0px none transparent;
+    }
+    button
+    {
+        border: hidden;
+        background-color: #5fb5a8;
+        height: 100px;
+        width: 100px;
+        color: #ffffff;
+        font-family: 'Lobster';
+        font-size: 50px;
+        border-radius: 20px;
+    }
+    button:active{
+        border: hidden;
+        background-color: #5fb5a8;
+        height: 100px;
+        width: 100px;
+        color: #280104;
+        font-family: 'Lobster';
+        font-size: 50px;
+        border-radius: 20px;
+    }
+</style>
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+ <link href='http://fonts.googleapis.com/css?family=Molle:400italic' rel='stylesheet' type='text/css' id="Lobster">
+</head>
+<body>
+   <center>
+    <div id="container" style="width: 90%; height: 700px">
+
+    <div id="outerDiv" style="
+        position: relative;
+        float: left;
+        width: 53%;
+        height: 80%;
+        z-index: 1;">
+
+    <div id="semiTransparentDiv" style="
+        position: absolute;
+        background-color: #fffaf3;
+        opacity:.50;
+        height: 100%;
+        width: 100%;
+        z-index: 1;">
+    </div>
+    
+    <div id="contentDiv1" style="
+        position: relative;
+        z-index: 2;
+        padding: 10px;
+        color: white;
+        font-weight: bold;">
+    <br>
+    <h1>Replay</h1>
+    <h2>Bringing it back</h2></br>
+
+    <script>
+        var genre;
+        var year;
+
+        function init()
+        {
+            genre = (document.getElementById('genre')).value;
+            year = (document.getElementById('year')).value;
+        }
+
+
+    </script>
+
+    <p>Genre:</p>
+    <textarea id="genre"> </textarea><br></br>
+    <p>Year:</p>
+    <textarea id="year"> </textarea><br></br>
+    <button id='submit' onclick="init()">Go!</button>"
+
+    </div></div>
+    <div id="outerDiv2" style="
+        position: relative;
+        float: right;
+        width: 45%;
+        height: 80%;
+        z-index: 1;">
+
+    <div id="semiTransparentDiv2" style="
+        position: absolute;
+        background-color: #fffaf3;
+        opacity:.50;
+        height: 100%;
+        width: 100%;
+        z-index: 1;">
+    </div>
+
+    <div id="contentDiv2" style="
+        position: relative;
+        z-index: 2;
+        padding: 10px;
+        color: white;
+        font-weight: bold;">
+
+    <p>Here you go!</p>
+    <iframe src="https://embed.spotify.com/?uri=spotify:track:0keOYIEWLBZh2LvpvQOtzS" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
+
+    </div></div>
+   </div>
+   </center>
+</body>
+</html>
