@@ -1,6 +1,57 @@
 <!DOCTYPE html>
 
 <html>
+<?php
+$billboard_top_url = "http://www.billboard.com/charts/";
+
+$genre_array = array("pop","rock","country","r-b-hip-hop","latin","dance-electronic");
+$AllGenre = array();
+for ($i = 0; $i < sizeof($genre_array); $i++) {
+    $billboard = array();
+    $genre = $genre_array[$i];
+    $source = file_get_contents($billboard_top_url . $genre . "-songs?page=0");
+    $dom = new DOMDocument();
+    @$dom->loadHTML($source);
+    
+    $xpath = new DOMXPath($dom);
+    $query = $xpath->query("//article[contains(@class, 'chart_albumTrack_detail')]");
+    foreach($query as $q) {
+        $song_position = trim($q->getElementsByTagName('span')->item(0)->nodeValue);
+        $song_name =  trim($q->getElementsByTagName('h1')->item(0)->nodeValue);
+        $song_artist = trim($q->getElementsByTagName('a')->item(0)->nodeValue);
+
+        // All songs may not have albums associated with them.
+        $song_album = explode("\n", $q->getElementsByTagName('p')->item(0)->nodeValue);
+        if(isset($song_album[2])) {
+            $song_album = trim($song_album[2]);
+        } else {
+            $song_album = NULL;
+        }
+
+        array_push(
+            $billboard, 
+            array (
+            'position' => $song_position,
+            'song' => $song_name,
+            'artist' => $song_artist,
+            'album' => $song_album
+            )
+        );
+    }
+    array_push(
+        $AllGenre, 
+        array (
+        'genre' => $genre,
+        'top10' => $billboard
+        )
+    );
+    
+}
+  
+$fp = fopen('top.json', 'w');
+fwrite($fp, json_encode($AllGenre, JSON_PRETTY_PRINT));
+fclose($fp);
+?>
 <head>
     <title>RePlay</title>
 <style>
