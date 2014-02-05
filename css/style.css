@@ -1,0 +1,112 @@
+body{
+    background: url(http://hdooh.com/wp-content/uploads/2013/10/Record-Vinyl-Photograph.jpg);
+    position: relative;
+}
+@font-face {
+    font-family: 'Lobster';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Lobster'), url(http://themes.googleusercontent.com/static/fonts/lobster/v5/8xaBBwqwZomW1W1sS-1tfaCWcynf_cDxXwCLxiixG1c.woff) format('woff');
+}
+h1{
+    font-family: 'Lobster';
+    font-size: 100px;
+    color: #50a4a5;
+    text-align: center;
+    line-height: 5%;
+}
+h2{
+    font-family: "Arial";
+    font-size: 20px;
+    color: #50a4a5;
+    text-align: center;
+    font-weight: 100;
+    line-height: 5%;
+    letter-spacing:  -2px;
+}
+p{
+    font-family: 'Lobster';
+    font-size: 20px;
+    color: #280104;
+    text-align: center;
+    font-weight: 100;
+    line-height: 0%;
+    letter-spacing: -1px;
+}
+textarea
+{
+    resize: none;
+    font-family: "Arial";
+    font-size: 15px;
+    border: hidden;
+    background-color: #ffffff;
+    height: 30px;
+    width: 250px;
+    border-radius: 10px;
+    -moz-appearance: none;
+}
+select
+{
+    text-align: center;
+    padding-top: 5px;
+    resize: none;
+    font-family: "Arial";
+    font-size: 15px;
+    border: hidden;
+    background-color: #ffffff;
+    height: 30px;
+    width: 250px;
+    border-radius: 10px;
+    -moz-appearance: none;
+}
+*:focus
+{
+    outline:0px none transparent;
+}
+button
+{
+    border: hidden;
+    background-color: #5fb5a8;
+    height: 100px;
+    width: 100px;
+    color: #ffffff;
+    font-family: 'Lobster';
+    font-size: 50px;
+    border-radius: 20px;
+}
+button:active{
+    border: hidden;
+    background-color: #5fb5a8;
+    height: 100px;
+    width: 100px;
+    color: #280104;
+    font-family: 'Lobster';
+    font-size: 50px;
+    border-radius: 20px;
+}
+iframe
+{
+    width: 300px;
+    height: 380px;
+}
+@media(max-width: 500px) {
+/*When the width of brower is less than 500px, resize following elements as such*/
+    h1 {
+        font-size: 35px;
+        padding: 5px;
+    }
+    li {
+        display: block;
+    }
+    select {
+        height: 30px;
+        width: 175px;
+    }
+    textarea {
+        height: 30px;
+        width: 175px;
+    }
+    iframe {
+        width: 175px;
+    }
+}
