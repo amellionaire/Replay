@@ -1,0 +1,366 @@
+{
+    "pop": {
+        "1": {
+            "song": "Timber",
+            "artist": "Pitbull Featuring Ke$ha",
+            "album": "Timber"
+        },
+        "2": {
+            "song": "Counting Stars",
+            "artist": "OneRepublic",
+            "album": "Native"
+        },
+        "3": {
+            "song": "The Monster",
+            "artist": "Eminem Featuring Rihanna",
+            "album": "The Marshall Mathers LP 2"
+        },
+        "4": {
+            "song": "Burn",
+            "artist": "Ellie Goulding",
+            "album": "Halcyon"
+        },
+        "5": {
+            "song": "Dark Horse",
+            "artist": "Katy Perry Featuring Juicy J",
+            "album": "Prism [LP] [Bonus Tracks]"
+        },
+        "6": {
+            "song": "Story Of My Life",
+            "artist": "One Direction",
+            "album": "Story of My Life"
+        },
+        "7": {
+            "song": "Stay The Night",
+            "artist": "Zedd Featuring Hayley Williams",
+            "album": "Stay the Night"
+        },
+        "8": {
+            "song": "Let Her Go",
+            "artist": "Passenger",
+            "album": "All the Little Lights"
+        },
+        "9": {
+            "song": "Do What U Want",
+            "artist": "Lady Gaga Featuring R. Kelly",
+            "album": "ARTPOP [Clean]"
+        },
+        "10": {
+            "song": "Team",
+            "artist": "Lorde",
+            "album": "Pure Heroine"
+        }
+    },
+    "rock": {
+        "1": {
+            "song": "Let Her Go",
+            "artist": "Passenger",
+            "album": "All the Little Lights"
+        },
+        "2": {
+            "song": "Team",
+            "artist": "Lorde",
+            "album": "Pure Heroine"
+        },
+        "3": {
+            "song": "Royals",
+            "artist": "Lorde",
+            "album": "Pure Heroine"
+        },
+        "4": {
+            "song": "Pompeii",
+            "artist": "Bastille",
+            "album": "Bad Blood"
+        },
+        "5": {
+            "song": "Demons",
+            "artist": "Imagine Dragons",
+            "album": "Night Visions [Deluxe Edition]"
+        },
+        "6": {
+            "song": "Sweater Weather",
+            "artist": "The Neighbourhood",
+            "album": "I Love You"
+        },
+        "7": {
+            "song": "Radioactive",
+            "artist": "Imagine Dragons",
+            "album": "Night Visions [Deluxe Edition]"
+        },
+        "8": {
+            "song": "Best Day Of My Life",
+            "artist": "American Authors",
+            "album": "American Authors"
+        },
+        "9": {
+            "song": "Safe And Sound",
+            "artist": "Capital Cities",
+            "album": "In a Tidal Wave of Mystery"
+        },
+        "10": {
+            "song": "Sail",
+            "artist": "AWOLNATION",
+            "album": "Megalithic Symphony"
+        }
+    },
+    "country": {
+        "1": {
+            "song": "Drink A Beer",
+            "artist": "Luke Bryan",
+            "album": "Crash My Party"
+        },
+        "2": {
+            "song": "Whatever She's Got",
+            "artist": "David Nail",
+            "album": "Whatever She's Got"
+        },
+        "3": {
+            "song": "Chillin' It",
+            "artist": "Cole Swindell",
+            "album": "Chillin It [Single]"
+        },
+        "4": {
+            "song": "When She Says Baby",
+            "artist": "Jason Aldean",
+            "album": "Night Train to Georgia"
+        },
+        "5": {
+            "song": "Stay",
+            "artist": "Florida Georgia Line",
+            "album": "Here's to the Good Times [Bonus Tracks]"
+        },
+        "6": {
+            "song": "Friday Night",
+            "artist": "Eric Paslay",
+            "album": "Friday Night"
+        },
+        "7": {
+            "song": "Compass",
+            "artist": "Lady Antebellum",
+            "album": "Golden [Bonus Tracks]"
+        },
+        "8": {
+            "song": "Rewind",
+            "artist": "Rascal Flatts",
+            "album": "Rewind"
+        },
+        "9": {
+            "song": "Bottoms Up",
+            "artist": "Brantley Gilbert",
+            "album": "Bottoms Up"
+        },
+        "10": {
+            "song": "Wasting All These Tears",
+            "artist": "Cassadee Pope",
+            "album": "Frame by Frame"
+        }
+    },
+    "hip_hop": {
+        "1": {
+            "song": "The Monster",
+            "artist": "Eminem Featuring Rihanna",
+            "album": "The Marshall Mathers LP 2"
+        },
+        "2": {
+            "song": "Talk Dirty",
+            "artist": "Jason Derulo Featuring 2 Chainz",
+            "album": "NO_ALBUM"
+        },
+        "3": {
+            "song": "Happy",
+            "artist": "Pharrell Williams",
+            "album": "Happy"
+        },
+        "4": {
+            "song": "Drunk In Love",
+            "artist": "Beyonce Featuring Jay Z",
+            "album": "NO_ALBUM"
+        },
+        "5": {
+            "song": "Show Me",
+            "artist": "Kid Ink Featuring Chris Brown",
+            "album": "Show Me"
+        },
+        "6": {
+            "song": "Hold On, We're Going Home",
+            "artist": "Drake Featuring Majid Jordan",
+            "album": "Hold On, We're Going Home"
+        },
+        "7": {
+            "song": "All Of Me",
+            "artist": "John Legend",
+            "album": "All of Me"
+        },
+        "8": {
+            "song": "White Walls",
+            "artist": "Macklemore & Ryan Lewis Featuring ScHoolboy Q & Hollis",
+            "album": "The Heist"
+        },
+        "9": {
+            "song": "My Hitta",
+            "artist": "YG Featuring Jeezy & Rich Homie Quan",
+            "album": "My Hitta"
+        },
+        "10": {
+            "song": "Blurred Lines",
+            "artist": "Robin Thicke Featuring T.I. + Pharrell",
+            "album": "NO_ALBUM"
+        }
+    },
+    "latin": {
+        "1": {
+            "song": "El Perdedor",
+            "artist": "Spotify",
+            "album": "NO_ALBUM"
+        },
+        "2": {
+            "song": "Propuesta Indecente",
+            "artist": "Romeo Santos",
+            "album": "Propuesta Indecente"
+        },
+        "3": {
+            "song": "Darte Un Beso",
+            "artist": "Prince Royce",
+            "album": "Darte Un Beso"
+        },
+        "4": {
+            "song": "Vivir Mi Vida",
+            "artist": "Marc Anthony",
+            "album": "3.0"
+        },
+        "5": {
+            "song": "Loco",
+            "artist": "Spotify",
+            "album": "NO_ALBUM"
+        },
+        "6": {
+            "song": "Hermosa Experiencia",
+            "artist": "Banda Sinaloense MS de Sergio Lizarraga",
+            "album": "NO_ALBUM"
+        },
+        "7": {
+            "song": "Vas A Llorar Por Mi",
+            "artist": "Spotify",
+            "album": "NO_ALBUM"
+        },
+        "8": {
+            "song": "Mujer de Piedra",
+            "artist": "Spotify",
+            "album": "NO_ALBUM"
+        },
+        "9": {
+            "song": "La Nueva y La Ex",
+            "artist": "Daddy Yankee",
+            "album": "NO_ALBUM"
+        },
+        "10": {
+            "song": "Cambio de Piel",
+            "artist": "Marc Anthony",
+            "album": "3.0"
+        }
+    },
+    "dance-electronic": {
+        "1": {
+            "song": "Wake Me Up!",
+            "artist": "Avicii",
+            "album": "Wake Me Up"
+        },
+        "2": {
+            "song": "Stay The Night",
+            "artist": "Zedd Featuring Hayley Williams",
+            "album": "Stay the Night"
+        },
+        "3": {
+            "song": "Hey Brother",
+            "artist": "Avicii",
+            "album": "True [Deluxe Edition]"
+        },
+        "4": {
+            "song": "Get Lucky",
+            "artist": "Myspace",
+            "album": "NO_ALBUM"
+        },
+        "5": {
+            "song": "Turn Down For What",
+            "artist": "DJ Snake & Lil Jon",
+            "album": "NO_ALBUM"
+        },
+        "6": {
+            "song": "Animals",
+            "artist": "Martin Garrix",
+            "album": "Animals"
+        },
+        "7": {
+            "song": "Applause",
+            "artist": "Lady Gaga",
+            "album": "ARTPOP [Clean]"
+        },
+        "8": {
+            "song": "Summertime Sadness",
+            "artist": "Lana Del Rey & Cedric Gervais",
+            "album": "Summertime Sadness (Lana Del Rey vs. Cedric Gervais) [Remix \/ Radio Edit]"
+        },
+        "9": {
+            "song": "Take Me Home",
+            "artist": "Cash Cash Featuring Bebe Rexha",
+            "album": "Take Me Home"
+        },
+        "10": {
+            "song": "Thinking About You",
+            "artist": "Myspace",
+            "album": "NO_ALBUM"
+        }
+    },
+    "christian": {
+        "1": {
+            "song": "Oceans (Where Feet May Fail)",
+            "artist": "United",
+            "album": "NO_ALBUM"
+        },
+        "2": {
+            "song": "Overcomer",
+            "artist": "Mandisa",
+            "album": "Overcomer"
+        },
+        "3": {
+            "song": "This Is Amazing Grace",
+            "artist": "Phil Wickham",
+            "album": "NO_ALBUM"
+        },
+        "4": {
+            "song": "Beautiful Day",
+            "artist": "Jamie Grace",
+            "album": "Ready to Fly"
+        },
+        "5": {
+            "song": "Speak Life",
+            "artist": "tobyMac",
+            "album": "Eye on It"
+        },
+        "6": {
+            "song": "The Only Name (Yours Will Be)",
+            "artist": "Big Daddy Weave",
+            "album": "Love Come to Life"
+        },
+        "7": {
+            "song": "Lord I Need You",
+            "artist": "Matt Maher",
+            "album": "NO_ALBUM"
+        },
+        "8": {
+            "song": "Shake",
+            "artist": "MercyMe",
+            "album": "NO_ALBUM"
+        },
+        "9": {
+            "song": "Write Your Story",
+            "artist": "Francesca Battistelli",
+            "album": "NO_ALBUM"
+        },
+        "10": {
+            "song": "Love Alone Is Worth The Fight",
+            "artist": "Switchfoot",
+            "album": "Fading West"
+        }
+    }
+}
