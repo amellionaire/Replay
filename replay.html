@@ -2,7 +2,6 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
 <?php
-<<<<<<< HEAD
     
     function add_to_array($array, $key, $value) {
         if(array_key_exists($key, $array)) {
@@ -16,122 +15,6 @@
         else {
             $array[$key] = array($value);
         }
-=======
-$billboard_top_url = "http://www.billboard.com/charts/";
-
-$genre_array = array("pop","rock","country","r-b-hip-hop","latin","dance-electronic");
-$AllGenre = array();
-for ($i = 0; $i < sizeof($genre_array); $i++) {
-    $billboard = array();
-    $genre = $genre_array[$i];
-    $source = file_get_contents($billboard_top_url . $genre . "-songs?page=0");
-    $dom = new DOMDocument();
-    @$dom->loadHTML($source);
-    
-    $xpath = new DOMXPath($dom);
-    $query = $xpath->query("//article[contains(@class, 'chart_albumTrack_detail')]");
-    foreach($query as $q) {
-        $song_position = trim($q->getElementsByTagName('span')->item(0)->nodeValue);
-        $song_name =  trim($q->getElementsByTagName('h1')->item(0)->nodeValue);
-        $song_artist = trim($q->getElementsByTagName('a')->item(0)->nodeValue);
-
-        // All songs may not have albums associated with them.
-        $song_album = explode("\n", $q->getElementsByTagName('p')->item(0)->nodeValue);
-        if(isset($song_album[2])) {
-            $song_album = trim($song_album[2]);
-        } else {
-            $song_album = NULL;
-        }
-
-        array_push(
-            $billboard, 
-            array (
-            'position' => $song_position,
-            'song' => $song_name,
-            'artist' => $song_artist,
-            'album' => $song_album
-            )
-        );
-    }
-    array_push(
-        $AllGenre, 
-        array (
-        'genre' => $genre,
-        'top10' => $billboard
-        )
-    );
-    
-}
-  
-$fp = fopen('top.json', 'w');
-fwrite($fp, json_encode($AllGenre, JSON_PRETTY_PRINT));
-fclose($fp);
-?>
-<head>
-    <title>RePlay</title>
-<style>
-    body{
-        background: url(http://hdooh.com/wp-content/uploads/2013/10/Record-Vinyl-Photograph.jpg);
-        position: relative;
-    }
-    @font-face {
-        font-family: 'Lobster';
-        font-style: normal;
-        font-weight: 400;
-        src: local('Lobster'), url(http://themes.googleusercontent.com/static/fonts/lobster/v5/8xaBBwqwZomW1W1sS-1tfaCWcynf_cDxXwCLxiixG1c.woff) format('woff');
-    }
-    h1{
-        font-family: 'Lobster';
-        font-size: 100px;
-        color: #50a4a5;
-        text-align: center;
-        line-height: 5%;
-    }
-    h2{
-        font-family: "Arial";
-        font-size: 20px;
-        color: #50a4a5;
-        text-align: center;
-        font-weight: 100;
-        line-height: 5%;
-        letter-spacing:  -2px;
-    }
-    p{
-        font-family: 'Lobster';
-        font-size: 20px;
-        color: #280104;
-        text-align: center;
-        font-weight: 100;
-        line-height: 0%;
-        letter-spacing: -1px;
-    }
-    textarea
-    {
-        resize: none;
-        font-family: "Arial";
-        font-size: 15px;
-        border: hidden;
-        background-color: #ffffff;
-        height: 30px;
-        width: 250px;
-        border-radius: 10px;
-        -moz-appearance: none;
-    }
-    *:focus
-    {
-        outline:0px none transparent;
-    }
-    button
-    {
-        border: hidden;
-        background-color: #5fb5a8;
-        height: 100px;
-        width: 100px;
-        color: #ffffff;
-        font-family: 'Lobster';
-        font-size: 50px;
-        border-radius: 20px;
->>>>>>> e6106512406894ba0c5b5e8bac3c3103155d1506
     }
 
     $billboard_top_url = "http://www.billboard.com/charts/";
