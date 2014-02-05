@@ -1,84 +1,78 @@
-<!DOCTYPE html>
-
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
+<?php
+    
+    function add_to_array($array, $key, $value) {
+        if(array_key_exists($key, $array)) {
+            if(is_array($array[$key])) {
+                $array[$key][] = $value;
+            }
+            else {
+                $array[$key] = array($array[$key], $value);           
+            }
+        }
+        else {
+            $array[$key] = array($value);
+        }
+    }
+
+    $billboard_top_url = "http://www.billboard.com/charts/";
+
+    $genre_array = array("pop","rock","country","r-b-hip-hop","latin","dance-electronic","christian");
+    $AllGenre = array();
+    for ( $i = 0; $i < sizeof($genre_array); $i++ ) {
+        $genre = $genre_array[$i];
+        $source = file_get_contents($billboard_top_url . $genre . "-songs?page=0");
+        $dom = new DOMDocument();
+        @$dom->loadHTML($source);
+        
+        $xpath = new DOMXPath($dom);
+        $query = $xpath->query("//article[contains(@class, 'chart_albumTrack_detail')]");
+        foreach($query as $q) {
+            $song_position = trim($q->getElementsByTagName('span')->item(0)->nodeValue);
+            $song_name =  trim($q->getElementsByTagName('h1')->item(0)->nodeValue);
+            $song_artist = trim($q->getElementsByTagName('a')->item(0)->nodeValue);
+
+            // All songs may not have albums associated with them.
+            $song_album = explode("\n", $q->getElementsByTagName('p')->item(0)->nodeValue);
+            if(isset($song_album[2])) {
+                $song_album = trim($song_album[2]);
+            } else {
+                $song_album = 'NO_ALBUM';
+            }
+            /*
+            array_push(
+                $billboard, 
+                array (
+                'position' => $song_position,
+                'song' => $song_name,
+                'artist' => $song_artist,
+                'album' => $song_album
+                )
+            );
+            */
+            $song = ['song' => $song_name, 'artist' => $song_artist, 'album' => $song_album];
+            if ($genre == 'r-b-hip-hop'){
+                $AllGenre['hip_hop'][$song_position] = $song;
+            }
+            else{
+                $AllGenre[$genre][$song_position] = $song;
+            }
+        }
+        //array_push( $AllGenre, array ( $genre => $billboard ) );
+        
+    }
+
+    $fp = fopen('top.json', 'w');
+    fwrite($fp, json_encode( $AllGenre, JSON_PRETTY_PRINT ) );
+    fclose($fp);    
+?>
 <head>
     <title>RePlay</title>
-<style>
-    body{
-        background: url(http://hdooh.com/wp-content/uploads/2013/10/Record-Vinyl-Photograph.jpg);
-        position: relative;
-    }
-    @font-face {
-        font-family: 'Lobster';
-        font-style: normal;
-        font-weight: 400;
-        src: local('Lobster'), url(http://themes.googleusercontent.com/static/fonts/lobster/v5/8xaBBwqwZomW1W1sS-1tfaCWcynf_cDxXwCLxiixG1c.woff) format('woff');
-    }
-    h1{
-        font-family: 'Lobster';
-        font-size: 100px;
-        color: #50a4a5;
-        text-align: center;
-        line-height: 5%;
-    }
-    h2{
-        font-family: "Arial";
-        font-size: 20px;
-        color: #50a4a5;
-        text-align: center;
-        font-weight: 100;
-        line-height: 5%;
-        letter-spacing:  -2px;
-    }
-    p{
-        font-family: 'Lobster';
-        font-size: 20px;
-        color: #280104;
-        text-align: center;
-        font-weight: 100;
-        line-height: 0%;
-        letter-spacing: -1px;
-    }
-    textarea
-    {
-        resize: none;
-        font-family: "Arial";
-        font-size: 15px;
-        border: hidden;
-        background-color: #ffffff;
-        height: 30px;
-        width: 250px;
-        border-radius: 10px;
-        -moz-appearance: none;
-    }
-    *:focus
-    {
-        outline:0px none transparent;
-    }
-    button
-    {
-        border: hidden;
-        background-color: #5fb5a8;
-        height: 100px;
-        width: 100px;
-        color: #ffffff;
-        font-family: 'Lobster';
-        font-size: 50px;
-        border-radius: 20px;
-    }
-    button:active{
-        border: hidden;
-        background-color: #5fb5a8;
-        height: 100px;
-        width: 100px;
-        color: #280104;
-        font-family: 'Lobster';
-        font-size: 50px;
-        border-radius: 20px;
-    }
-</style>
-<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
- <link href='http://fonts.googleapis.com/css?family=Molle:400italic' rel='stylesheet' type='text/css' id="Lobster">
+    <link href="./css/style.css" rel="stylesheet">
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Molle:400italic' rel='stylesheet' type='text/css' id="Lobster">
 </head>
 <body>
    <center>
@@ -111,23 +105,63 @@
     <h2>Bringing it back</h2></br>
 
     <script>
+        
         var genre;
         var year;
-
+        var json = new Array();
+        var key = 'LQPMNB3ATFB3STGYV'
+        
         function init()
         {
-            genre = (document.getElementById('genre')).value;
-            year = (document.getElementById('year')).value;
+            var e = document.getElementById('Genre');
+            genre = e.options[e.selectedIndex].value;
+            var f = document.getElementById('Year');
+            year = f.options[f.selectedIndex].value;
+            
+            // get json doc with top 10 info
+            url = './top.json';
+            var req = new XMLHttpRequest();  
+            req.open('GET', url, false);   
+            req.send(null);
+            var obj = jQuery.parseJSON( req.responseText )
+            
+            
+            var pop = JSON.stringify( obj.pop )
+            var rock = JSON.stringify( obj.rock )
+            var country = JSON.stringify( obj.country )
+            var hip_hop = JSON.stringify( obj.hip_hop )
+            var latin = JSON.stringify( obj.latin )
+            var electronic = JSON.stringify( obj.dance-electronic )
+            var christian = JSON.stringify( obj.christian )
+
+
         }
 
 
     </script>
 
     <p>Genre:</p>
-    <textarea id="genre"> </textarea><br></br>
-    <p>Year:</p>
-    <textarea id="year"> </textarea><br></br>
-    <button id='submit' onclick="init()">Go!</button>"
+    <select id="Genre">
+        <option value="country">Country</option>
+        <option value="dance-electronic">Dance-Electronic</option>
+        <option value="r-b-hip-hop">Hip-Hop/R&B</option>
+        <option value="Latin">Latin</option>
+        <option value="pop">Pop</option>
+        <option value="rock">Rock</option>
+        <option value="christian">Christian</option>
+    </select><br></br>
+    
+    <select id="Year">
+        <?php
+            foreach (range(2014, 1900) as $number) {
+        ?>
+                <option value="<?php echo $number;?>"><?php echo $number; ?></option>
+        <?php
+            }
+        ?>
+    </select>
+    <br><br>
+    <button id='submit' onClick="init()">Go!</button>
 
     </div></div>
     <div id="outerDiv2" style="
@@ -154,7 +188,8 @@
         font-weight: bold;">
 
     <p>Here you go!</p>
-    <iframe src="https://embed.spotify.com/?uri=spotify:track:0keOYIEWLBZh2LvpvQOtzS" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
+    <iframe src="https://embed.spotify.com/?uri=spotify:user:123781709:playlist:210LHW5eHq5ENq4ovzgObH" frameborder="0" allowtransparency="true">
+    </iframe>
 
     </div></div>
    </div>
